@@ -14,10 +14,12 @@ final class HomeController extends AbstractController
     {
         $session = $request->getSession();
 
-        // if (!$session->has('endtime') || $session->get('endtime') == 1758531137) {
-            // on fixe end_time = maintenant + 1h
-            $session->set('endtime', time() + 3600);
-        //}
+        if (
+            !$session->has('endtime') || 
+            $session->get('endtime') <= time()
+        ) {
+            $session->set('endtime', time() + 60);
+        }
 
         $endTime =  $session->get('endtime');
 

@@ -26,11 +26,13 @@ final class GameHomeController extends AbstractController
 
         $agents = $session->get('agents');
 
+        $hash = $this->getSecretHash();
+
         return $this->render('game_home/index.html.twig', [
             'controller_name' => 'GameHomeController',
             'agents' => $agents,
             'endtime' => $endTime,
-
+            'hash' => $hash,
         ]);
     }
 
@@ -48,6 +50,12 @@ final class GameHomeController extends AbstractController
         $session->set('agents', $agents);
 
         return $this->redirectToRoute('app_game_home');
+    }
+    
+    private function getSecretHash(): string
+    {
+        $secretCode = '230699';
+        return hash('sha256', $secretCode);
     }
 
     private function randomAgent(): array
