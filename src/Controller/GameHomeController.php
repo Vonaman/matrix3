@@ -14,11 +14,11 @@ final class GameHomeController extends AbstractController
     {
         $session = $request->getSession();
 
-        if (!$session->get('is_logged_in') || !$session->has('end_time')) {
+        if (!$session->get('is_logged_in') || !$session->has('endtime')) {
             return $this->redirectToRoute('app_home');
         }
 
-        $endTime = $session->get('timer_end');
+        $endTime = $session->get('endtime');
 
         if (!$session->has('agents')) {
             $session->set('agents', $this->randomAgent());
@@ -29,7 +29,7 @@ final class GameHomeController extends AbstractController
         return $this->render('game_home/index.html.twig', [
             'controller_name' => 'GameHomeController',
             'agents' => $agents,
-            'endTime' => $endTime,
+            'endtime' => $endTime,
 
         ]);
     }

@@ -14,16 +14,16 @@ final class HomeController extends AbstractController
     {
         $session = $request->getSession();
 
-        if (!$session->has('end_time')) {
+        if (!$session->has('endtime')) {
             // on fixe end_time = maintenant + 1h
-            $session->set('end_time', time() + 3600);
+            $session->set('endtime', time() + 3600);
         }
 
-        $endTime =  $session->get('end_time');
+        $endTime =  $session->get('endtime');
 
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
-            'end_time' => $endTime,
+            'endtime' => $endTime,
         ]);
     }
 }
