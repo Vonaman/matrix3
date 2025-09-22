@@ -1,0 +1,11 @@
+<div class="w-full h-full flex justify-end items-center p-48 bg-black text-3xl" >
+    <div class="flex flex-row-reverse items-center gap-4 w-max" x-data="{open: false}">
+        <button class="btn w-max h-max" @click="open = !open">
+            Activer le code
+        </button>
+        <div class="relative flex flex-col gap-4 p-8 rounded-3xl bg-white transition-all" x-show="open" x-transition x-transition.duration.500ms>
+            <input type="text" name="number" id="number" class="border border-red-500 p-2 placeholder:text-black focus:outline-0" placeholder="******">
+            <button type="submit" class="btn">Envoyer</button>
+        </div>
+    </div>
+</div>

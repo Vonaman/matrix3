@@ -1,0 +1,22 @@
+<div class="w-full h-full flex items-center justify-center bg-black text-white text-3xl">
+    <p class="absolute text-[#20E820] text-lg left-24 bottom-32"
+        x-data="{ 
+                visible: true, 
+                showTime: 1000,   // durée visible (1s)
+                hideTime: 2000,   // durée cachée (3s)
+                toggle() {
+                    this.visible = true;
+                    setTimeout(() => {
+                        this.visible = false;
+                    }, this.showTime);
+                }
+            }"
+        x-init="
+                toggle();
+                setInterval(() => { toggle() }, showTime + hideTime)
+        "
+        x-show="visible"
+        x-transition>
+            3
+    </p>
+</div>

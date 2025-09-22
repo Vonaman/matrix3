@@ -4,11 +4,100 @@
 
 {% block body %}
 
-<div class="w-full h-full">
+<div class="w-full h-full relative overflow-hidden" 
+    x-data="{ row: 0, col: 0, rows: 2, cols: 2 }">
+
     {% include './component/timer.html.twig' %}
     {% include './component/dashboard.html.twig' %}
-    
+
+    <div class="grid grid-rows-3 grid-cols-3 w-[300%] h-[300%] transition-transform duration-500 ease-in-out"
+         :style="'transform: translateX(-' + (col * 33.333333333) + '%) translateY(-' + (row * 33.33333333) + '%)'">
+
+        {% for i in 1..9 %}
+            {% include './component/ecrans/ecran-' ~ i ~ '.html.twig' %}
+        {% endfor %}
+
+        <div class="w-full h-full hidden items-center justify-center bg-black text-white text-3xl">
+            {% for i in 1..5 %}      
+                {% if i == 3 %}
+                    <div class="">
+                        {% for j in 1..3 %}  
+                            {% if j == 2 %}
+                                <div class="">
+                                    {% for k in 1..2 %}
+                                        {% if k == 1 %} 
+                                            <div class="L'agent_1 a pris un pillule">
+                                                Bleu
+                                            </div>
+                                        {% else %}
+                                            <div class="">
+                                                Vivamus pretium nulla libero, sagittis varius turpis condimentum a. Nullam eleifend ullamcorper imperdiet. Nulla sit amet consectetur felis, ultricies vestibulum mi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis et ipsum leo. Mauris eu nunc velit. Praesent eu tincidunt dolor. Vivamus pulvinar, turpis eget accumsan pellentesque, dui tortor convallis lectus, sit amet posuere lorem tellus et magna. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                <div class="">
+                                    {% for k in 1..2 %}
+                                        <div class="">
+                                            Vivamus pretium nulla libero, sagittis varius turpis condimentum a. Nullam eleifend ullamcorper imperdiet. Nulla sit amet consectetur felis, ultricies vestibulum mi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis et ipsum leo. Mauris eu nunc velit. Praesent eu tincidunt dolor. Vivamus pulvinar, turpis eget accumsan pellentesque, dui tortor convallis lectus, sit amet posuere lorem tellus et magna. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="">
+                        {% for j in 1..3 %}  
+                            <div class="">
+                                {% for k in 1..2 %}
+                                    <div class="">
+                                        Vivamus pretium nulla libero, sagittis varius turpis condimentum a. Nullam eleifend ullamcorper imperdiet. Nulla sit amet consectetur felis, ultricies vestibulum mi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis et ipsum leo. Mauris eu nunc velit. Praesent eu tincidunt dolor. Vivamus pulvinar, turpis eget accumsan pellentesque, dui tortor convallis lectus, sit amet posuere lorem tellus et magna. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <div class="">
+                    {% for j in 1..3 %}  
+                        <div class="">
+                            {% for k in 1..2 %}
+                                <div class="">
+                                    Vivamus pretium nulla libero, sagittis varius turpis condimentum a. Nullam eleifend ullamcorper imperdiet. Nulla sit amet consectetur felis, ultricies vestibulum mi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis et ipsum leo. Mauris eu nunc velit. Praesent eu tincidunt dolor. Vivamus pulvinar, turpis eget accumsan pellentesque, dui tortor convallis lectus, sit amet posuere lorem tellus et magna. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                                </div>
+                            {% endfor %}
+                        </div>  
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <button @click="if(col > 0) col--"
+            class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white px-4 py-2 rounded"
+            :class="col === 0 ? 'none' : '' "
+            >
+        ←
+    </button>
+
+    <button @click="if(col < cols) col++"
+            class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white px-4 py-2 rounded">
+        →
+    </button>
+
+    <button @click="if(row > 0) row--"
+            class="absolute top-4 left-1/2 -translate-x-1/2 bg-black/50 text-white px-4 py-2 rounded">
+        ↑
+    </button>
+
+    <button @click="if(row < rows) row++"
+            class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 text-white px-4 py-2 rounded">
+        ↓
+    </button>
 </div>
+
 
 
 

@@ -22,6 +22,7 @@ document.addEventListener("alpine:init", () => {
                 return;
             }
 
+            // L'agent_2 n'est pas dangereux.
             const minutes = Math.floor(diff / 60);
             const seconds = diff % 60;
             this.timeLeft = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
