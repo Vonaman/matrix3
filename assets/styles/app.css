@@ -56,23 +56,18 @@ body {
     box-shadow: 0 0 20px #20E820, 0 0 40px #20E820 inset;
 }
 
-/* Titre */
 .matrix-title {
     color: #20E820;
-    font-family: 'Courier New', monospace;
     text-transform: uppercase;
-    letter-spacing: 1px;
     text-shadow: 0 0 5px #20E820, 0 0 10px #20E820;
 }
 
-/* Select stylisé */
 .matrix-select {
     width: 100%;
     padding: 0.75rem 1rem;
     border-radius: 0.5rem;
     background-color: #000;
     color: #20E820;
-    font-family: 'Courier New', monospace;
     border: 1px solid #20E820;
     appearance: none;
     cursor: pointer;
@@ -93,7 +88,6 @@ body {
     font-family: 'Courier New', monospace;
 }
 
-/* Bouton toggle */
 .matrix-toggle {
     background-color: #000;
     border: 2px solid #20E820;
@@ -101,8 +95,7 @@ body {
     box-shadow: 0 0 10px #20E820, 0 0 20px #20E820 inset;
     transition: all 0.3s ease-in-out;
 
-    /* Toujours visible au-dessus du panneau */
-    bottom: 100%;
+    bottom: 110%;
     left: 50%;
     transform: translateX(-50%) translateY(50%);
     width: 40px;
@@ -113,13 +106,144 @@ body {
     z-index: 10;
 }
 
-.matrix-toggle:hover {
+.matrix-toggle span {
+    background-color: #20E820;
+}
+
+.matrix-side-toggle {
+    position: fixed;        /* Fixé à l’écran */
+    top: 25%;               /* légèrement en haut du panneau */
+    left: 0;                /* collé à gauche de l’écran */
+    transform: translateX(-50%);
+    background-color: #000;
+    border: 2px solid #20E820;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px #20E820, 0 0 20px #20E820 inset;
+    cursor: pointer;
+    z-index: 50;            /* au-dessus du panneau */
+}
+
+.matrix-side-toggle:hover {
     background-color: #20E820;
     color: #000;
-    cursor: pointer;
     box-shadow: 0 0 20px #20E820, 0 0 30px #20E820 inset;
 }
 
-.matrix-toggle span {
+.matrix-side-toggle span {
+    position: absolute;
+    width: 16px;
+    height: 2px;
     background-color: #20E820;
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+}
+
+.matrix-side-toggle .arrow-top {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.matrix-side-toggle .arrow-bottom {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+
+
+/* PANEL */
+.matrix-side-panel {
+    position: fixed;
+    top: 20%;
+    left: 0;
+    width: 240px;
+    height: 60vh;
+    background: black;
+    border: 2px solid #20E820;
+    border-radius: 12px;
+    padding: 1rem;
+    transform: translateX(-240px);
+    transition: transform 0.4s ease;
+    z-index: 50;
+}
+.matrix-side-panel.open {
+    transform: translateX(0);
+}
+.matrix-side-panel h2,
+.matrix-side-panel li {
+    color: #20E820;
+    font-family: monospace;
+}
+
+  /* TOGGLE BUTTON */
+.matrix-side-toggle {
+    position: fixed;
+    top: 22%;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    background: black;
+    border: 2px solid #20E820;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 100;
+}
+.matrix-side-toggle.open {
+    left: 250px; /* se déplace avec le panel ouvert */
+}
+
+/* ARROWS */
+.matrix-side-toggle .arrow-top,
+.matrix-side-toggle .arrow-bottom {
+    position: absolute;
+    width: 18px;
+    height: 2px;
+    background: #20E820;
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+}
+.matrix-side-toggle .arrow-top {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+.matrix-side-toggle .arrow-bottom {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+
+
+
+#timer {
+    background-color: #000;
+    border: 2px solid #20E820;
+    border-radius: 0 0 0 1.5rem; /* arrondi uniquement en bas à gauche */
+    padding: 0.5rem 1rem;
+    color: #20E820;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    text-align: center;
+
+    /* Glow Matrix */
+    text-shadow: 0 0 5px #20E820, 0 0 15px #20E820;
+    box-shadow: 0 0 15px #20E820, inset 0 0 10px #20E820;
+
+    /* Animation de pulsation subtile */
+    animation: matrixPulse 2s infinite alternate;
+}
+
+/* Effet pulsant du glow */
+@keyframes matrixPulse {
+    from {
+        box-shadow: 0 0 10px #20E820, inset 0 0 5px #20E820;
+    }
+    to {
+        box-shadow: 0 0 20px #20E820, inset 0 0 15px #20E820;
+    }
 }
