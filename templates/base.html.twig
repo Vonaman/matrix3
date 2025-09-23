@@ -10,11 +10,15 @@
 
 
         {% block javascripts %}
-            <script>
-                window.APP = {
-                    innocents: {{ innocents|json_encode|raw }}
-                }
-            </script>
+            {# injection seulement sur la route game_home (attention pas d'espace) #}
+            {% if app.request.attributes.get('_route') == 'app_game_home' %}
+                <script>
+                    window.APP = window.APP || {};
+                    // s'assure qu'on envoie toujours un array (évite erreur si innocents non défini)
+                    window.APP.innocents = {{ innocents|default([])|json_encode|raw }};
+                </script>
+            {% endif %}
+
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
