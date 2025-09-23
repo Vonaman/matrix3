@@ -14,17 +14,26 @@
 
 <!-- TOGGLE BUTTON -->
     <button
-    class="matrix-side-toggle"
+    class="matrix-side-toggle matrix-btn"
     :class="open ? 'open' : ''"
     @click="open = !open"
-    >
-        <span class="arrow-top"></span>
-        <span class="arrow-bottom"></span>
+>
+    <!-- flèche gauche -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="matrix-icon">
+        <path d="M2.33789 6C4.06694 3.01099 7.29866 1 11.0001 1C16.5229 1 21.0001 5.47715 21.0001 11C21.0001 16.5228 16.5229 21 11.0001 21C7.29866 21 4.06694 18.989 2.33789 16M11 15L15 11M15 11L11 7M15 11H1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+        </svg>
+        <span class="sr-only">Ouvrir/Fermer le panel</span>
     </button>
 </div>
 
-<div class="matrix-panel absolute p-8 w-auto transition-all duration-500 flex flex-col gap-8 z-50" :class="open ? 'right-0 bottom-0 translate-y-0' : 'right-[0%] bottom-0 translate-y-64'" x-transition x-transition.duration.500ms x-data="{ open: false }">
+<div class="matrix-panel absolute p-8 w-auto transition-all duration-500 flex flex-col gap-8 z-50"
+    :class="open ? 'right-0 bottom-0 translate-y-0' : 'right-[0%] bottom-0 translate-y-64'"
+    x-transition x-transition.duration.500ms
+    x-data="{ open: false }">
+
     <h1 class="matrix-title text-2xl">Processus d'innocentement</h1>
+
     {% if agents|length > 0 %}
         <form action="{{ path('app_eliminate_agent') }}" method="post" 
             class="flex flex-col justify-between h-full items-center gap-4">
@@ -42,11 +51,13 @@
         </form>
     {% endif %}
 
-    <button class="matrix-toggle absolute" @click="open = !open">
-        <div class="flex transition-all duration-500" :class="open ? 'rotate-180' : ''" x-transition x-transition.duration.500ms>
-            <span class='block relative bg-white w-4 h-[2px] rotate-[-45deg] left-[3px]'></span>
-            <span class='block relative bg-white w-4 h-[2px] rotate-45 right-[3px]'></span>
-        </div>
+    <!-- Nouveau bouton toggle Matrix -->
+    <button class="matrix-toggle absolute" @click="open = !open"
+            :class="open ? 'open' : ''">
+        <svg xmlns="http://www.w3.org/2000/svg" class="matrix-icon"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M7 20.6621C4.01099 18.933 2 15.7013 2 11.9999C2 6.47703 6.47715 1.99988 12 1.99988C17.5228 1.99988 22 6.47703 22 11.9999C22 15.7013 19.989 18.933 17 20.6621M16 11.9999L12 7.99995M12 7.99995L8 11.9999M12 7.99995V21.9999" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
     </button>
 </div>
 
