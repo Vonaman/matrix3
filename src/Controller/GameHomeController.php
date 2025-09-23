@@ -56,6 +56,10 @@ final class GameHomeController extends AbstractController
 
         $session->set('agents', $agents);
 
+        if(count($agents) == 1){
+            return $this->redirectToRoute('app_game_over');
+        }
+
         return $this->redirectToRoute('app_game_home');
     }
     

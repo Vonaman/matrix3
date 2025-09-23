@@ -1,5 +1,5 @@
-<div class="w-full h-full flex items-center justify-center bg-black text-white text-3xl">
-    <p class="absolute text-[#20E820] text-lg left-24 bottom-32"
+<div class="w-full h-full flex items-center justify-center bg-black text-white text-3xl relative">
+    <p class="absolute text-[#20E820] text-lg right-96 top-96"
         x-data="{ 
                 visible: true, 
                 showTime: 1000,   // durée visible (1s)
@@ -19,4 +19,5 @@
         x-transition>
             0
     </p>
+    <span class="absolute w-8 h-4 rounded-full bg-red-500 rotate-[-45deg] top-24 left-96"></span>
 </div>

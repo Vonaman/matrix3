@@ -1,9 +1,9 @@
-<div class="w-full h-full flex items-center justify-center bg-black text-white text-3xl">
-    <p class="absolute text-[#20E820] text-lg left-24 bottom-32"
+<div class="w-full h-full flex items-center justify-center bg-black text-white text-3xl relative">
+    <p class="absolute text-[#20E820] text-lg top-56 left-8"
         x-data="{ 
                 visible: true, 
-                showTime: 1000,   // durée visible (1s)
-                hideTime: 5000,   // durée cachée (3s)
+                showTime: 1000,
+                hideTime: 5000,
                 toggle() {
                     this.visible = true;
                     setTimeout(() => {
@@ -19,4 +19,5 @@
         x-transition>
             9
     </p>
+    <span class="absolute w-8 h-4 rounded-full bg-blue-400 rotate-[276deg] bottom-36 right-24"></span>
 </div>

@@ -1,9 +1,9 @@
-<div class="w-full h-full flex items-center justify-center bg-black text-white text-3xl">
-    <p class="absolute text-[#20E820] text-lg left-24 bottom-32"
+<div class="w-full h-full flex items-center justify-center bg-black text-white text-3xl relative">
+    <p class="absolute text-[#20E820] text-lg top-4 left-16"
         x-data="{ 
                 visible: true, 
                 showTime: 1000,   // durée visible (1s)
-                hideTime: 1000,   // durée cachée (3s)
+                hideTime: 6000,   // durée cachée (3s)
                 toggle() {
                     this.visible = true;
                     setTimeout(() => {
@@ -19,4 +19,5 @@
         x-transition>
             9
     </p>
+    Combien de fois y a t-il écrit Matrix dans le code source de cet écran.....
 </div>

@@ -370,3 +370,9 @@ body {
     font-family: monospace, sans-serif;
     text-align: center;
 }
+
+.form-code{
+    position: absolute;
+    right: 8rem;
+    top: 12.5%;
+}

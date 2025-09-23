@@ -1,9 +1,9 @@
 <div class="w-full h-full flex items-center justify-center bg-black text-white text-3xl relative">
-    <p class="absolute text-[#20E820] text-lg left-24 bottom-32"
+    <p class="absolute text-[#20E820] text-lg left-96 bottom-8"
         x-data="{ 
                 visible: true, 
-                showTime: 1000,   // durée visible (1s)
-                hideTime: 1000,   // durée cachée (3s)
+                showTime: 1000,
+                hideTime: 1000,
                 toggle() {
                     this.visible = true;
                     setTimeout(() => {
@@ -19,4 +19,5 @@
         x-transition>
             2
     </p>
+    Ajoute 6, soustrait 7, multiplie par 2 le chiffre précédent......
 </div>
