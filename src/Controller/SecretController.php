@@ -12,6 +12,8 @@ final class SecretController extends AbstractController
     #[Route('/verify-secret', name: 'app_verify_secret', methods: ['POST'])]
     public function verify(Request $request): Response
     {
+
+        $session = $request->getSession();
         $entered = (string) $request->request->get('code', '');
 
         $secret = '230699';
@@ -20,9 +22,17 @@ final class SecretController extends AbstractController
         $enteredHash = hash('sha256', $entered);
 
         if (hash_equals($secretHash, $enteredHash)) {
+            $innocents = $session->get('innocents', []);
+
+            if (!empty($innocents) && isset($innocents[2])) {
+                $agentName = $innocents[2]['name'];
+            } else {
+                $agentName = 'Inconnu';
+            }
+
             return $this->json([
                 'success' => true,
-                'secret' => "L'agent_3 est un allié."
+                'secret' => $agentName . " est un allié."
             ]);
         }
 

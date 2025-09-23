@@ -25,12 +25,19 @@ final class GameHomeController extends AbstractController
         }
 
         $agents = $session->get('agents');
+        $innocents = array_values(array_filter($agents, fn($a) => !$a['parasite']));
+        shuffle($innocents);
+
+        if(!$session->has('innocents')){
+            $session->set('innocents', $innocents);
+        }
 
         $hash = $this->getSecretHash();
 
         return $this->render('game_home/index.html.twig', [
             'controller_name' => 'GameHomeController',
             'agents' => $agents,
+            'innocents' => $innocents,
             'endtime' => $endTime,
             'hash' => $hash,
         ]);
@@ -60,13 +67,16 @@ final class GameHomeController extends AbstractController
 
     private function randomAgent(): array
     {
-        $tabAgent = array();
+        $tabAgent = [];
         $agentPara = rand(1, 6);
+
+        $agentName = ["Eliott", "Axel", "Momo", "Loïs", "Thomas", "Behnam"];
+        shuffle($agentName);
 
         for ($i = 1; $i <= 6; $i++) {
             $tabAgent[] = [
                 'id' => $i,
-                'name' => "agent_" . $i,
+                'name' => $agentName[$i - 1],
                 'parasite' => ($i === $agentPara),
             ];
         }
