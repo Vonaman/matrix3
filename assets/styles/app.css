@@ -571,3 +571,45 @@ body.gameover-body {
     box-shadow: 0 0 10px #20E820;
 }
 
+
+
+
+
+
+
+/* Bouton de fermeture Matrix */
+.matrix-close-btn {
+    background-color: #000;
+    border: 2px solid #20E820;
+    border-radius: 0.5rem; /* bords ronds comme sur ta capture */
+    box-shadow: 
+        0 0 10px #20E820,                    /* glow extérieur */
+        0 0 20px rgba(32, 232, 32, 0.3),     /* glow plus large */
+        0 0 15px rgba(32, 232, 32, 0.1) inset; /* glow intérieur */
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.icon-svg {
+    color: #20E820;
+}
+
+.matrix-close-btn:hover {
+    background-color: rgba(32, 232, 32, 0.1);
+    box-shadow: 
+        0 0 20px #20E820,
+        0 0 30px rgba(32, 232, 32, 0.5),
+        0 0 25px rgba(32, 232, 32, 0.2) inset;
+    transform: scale(1.05);
+}
+
+.matrix-close-icon {
+    color: #20E820;
+    filter: drop-shadow(0 0 3px #20E820);
+    transition: all 0.3s ease;
+}
+
+.matrix-close-btn:hover .matrix-close-icon {
+    color: #20E820;
+    filter: drop-shadow(0 0 8px #20E820);
+}
