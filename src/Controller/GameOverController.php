@@ -23,11 +23,11 @@ final class GameOverController extends AbstractController
 
         $agents = $session->get('agents', []);
 
-        if($agents[0]['parasite'] == true && count($agents) == 1){
+        
+        $victoire = false;
+        if($agents[0]['parasite'] == true && count($agents) === 1){
             $victoire = true;
         }
-
-        $victoire = false;
 
         return $this->render('game_over/index.html.twig', [
             'controller_name' => 'GameOverController',

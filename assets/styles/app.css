@@ -520,6 +520,11 @@ body.gameover-body {
     animation: flickerRed 2s infinite alternate;
 }
 
+.title-victory{
+    color: #20E820;
+    text-shadow: 0 0 15px #20E820, 0 0 30px #20E820;    
+}
+
   /* Sous-titre */
 .gameover-subtitle {
     font-size: 1.25rem;

@@ -11,7 +11,7 @@
 
 <div class="flex justify-center items-center flex-col w-dvw h-dvh bg-black gap-12" x-data="{ open: false }">
     <h1 class="text-5xl font-bold h-auto text-white text-center transition-all duration-1000" :class="open ? 'translate-y-[-275px]' : 'translate-y-0'">      
-        <span class="text-green-500 block">Bienvenue monsieur,</span> comment allez-vous aujourd'hui ?    
+        <span class="text-[#20E820] block">Bienvenue boss,</span> comment allez-vous aujourd'hui ?    
     </h1>
     <button class="btn" @click="open = true" x-show="!open" x-transition.duration.500m>
         Commencer
@@ -22,7 +22,7 @@
         x-show="open" 
         x-transition.duration.2000ms 
         x-data="loginForm">
-        <h2 class="text-2xl font-bold text-green-500 mb-4 text-center">Vous connectez</h2>
+        <h2 class="text-2xl font-bold text-[#20E820] mb-4 text-center">Vous connectez</h2>
 
     <form class="flex flex-col items-center justify-between gap-4 w-full" @submit.prevent="submitForm">
         <input type="email" placeholder="Email" 
