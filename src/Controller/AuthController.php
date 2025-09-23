@@ -19,7 +19,7 @@ final class AuthController extends AbstractController
         $password = $data['password'] ?? '';
 
         // ⚠️ Ici on fait une vérif simple (remplace par une vraie auth plus tard)
-        if ($email === "test@test.com" && $password === "1234") {
+        if ($email === "admin_I4@matrix.org" && $password === '4r@gtb7@ph$DFbB9') {
 
             $session = $request->getSession();
             $session->set('is_logged_in', true);

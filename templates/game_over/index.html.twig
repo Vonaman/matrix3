@@ -3,9 +3,9 @@
 {% block title %}Matrix détruite{% endblock %}
 
 {% block body %}
-
+<div class="matrix-rain" id="matrixRain"></div>
 {% if victoireCheck == true %}    
-    <div class="matrix-container">
+    <div class="matrix-container z-50">
         <h1 class="gameover-title title-victory">VICTORY</h1>
         <p class="gameover-subtitle">Agent parasite repéré, formatage de l'agent terminé.</p>
         <a href="/" class="btn">
@@ -13,7 +13,7 @@
         </a>
     </div>
 {% else %}
-    <div class="matrix-container">
+    <div class="matrix-container z-50">
         <h1 class="gameover-title">GAME OVER</h1>
         <p class="gameover-subtitle">L'agent parasite n'a pas était trouvé, la matrice est voué à disparaitre</p>
         <a href="/" class="btn">

@@ -4,6 +4,7 @@ import './bootstrap.js';
 import './js/login';
 import './js/timer.js';
 import './js/popUpAgent.js';
+import './js/matrixRain';
 import './styles/app.css';
 
 window.Alpine = Alpine;
@@ -13,7 +14,7 @@ Alpine.start();
 const innocents = (typeof window !== 'undefined' && Array.isArray(window.APP?.innocents))
     ? window.APP.innocents
     : [];
-
+console.log(window.APP.innocents)
 // Maintenant on peut l'utiliser partout
 if (innocents.length > 1) {
     const agent = innocents[1];

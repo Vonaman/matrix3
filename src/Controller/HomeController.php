@@ -23,6 +23,9 @@ final class HomeController extends AbstractController
         if($session->has('agents')){
             $session->remove('agents');
         }
+        if ($session->has('innocents')) {
+            $session->remove('innocents');
+        }
 
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',

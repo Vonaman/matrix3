@@ -7,7 +7,7 @@
     <h2>Liste d'agents suspects</h2>
     <ul>
         {% for agent in agents %}
-        <li>{{ agent.name }}</li>
+        <li>{{ agent.name }} - parasite: {{ agent.parasite ? 'oui' : 'non' }}</li>
         {% endfor %}
     </ul>
     </div>

@@ -20,17 +20,24 @@ final class GameHomeController extends AbstractController
 
         $endTime = $session->get('endtime');
 
+        // Toujours régénérer les agents si absents
         if (!$session->has('agents')) {
             $session->set('agents', $this->randomAgent());
         }
 
         $agents = $session->get('agents');
-        $innocents = array_values(array_filter($agents, fn($a) => !$a['parasite']));
-        shuffle($innocents);
 
-        if(!$session->has('innocents')){
+        // Toujours recalcule les innocents à partir des agents en session
+        $innocents = array_values(array_filter($agents, fn($a) => !$a['parasite']));
+
+        if (!$session->has('innocents')) {
+            shuffle($innocents); // mélange une seule fois
             $session->set('innocents', $innocents);
         }
+
+        $innocents = $session->get('innocents'); // cohérence garantie
+
+        // dd($agents, $innocents);
 
         $hash = $this->getSecretHash();
 
@@ -41,6 +48,7 @@ final class GameHomeController extends AbstractController
             'endtime' => $endTime,
             'hash' => $hash,
         ]);
+
     }
 
     #[Route('/game/eliminate', name: 'app_eliminate_agent', methods: ['POST'])]
@@ -71,13 +79,14 @@ final class GameHomeController extends AbstractController
 
     private function randomAgent(): array
     {
-        $tabAgent = [];
-        $agentPara = rand(1, 6);
-
         $agentName = ["Eliott", "Axel", "Momo", "Loïs", "Thomas", "Behnam"];
         shuffle($agentName);
+        
+        $tabAgent = [];
+        $agentPara = rand(1, count($agentName));
 
-        for ($i = 1; $i <= 6; $i++) {
+
+        for ($i = 1; $i <= count($agentName); $i++) {
             $tabAgent[] = [
                 'id' => $i,
                 'name' => $agentName[$i - 1],
