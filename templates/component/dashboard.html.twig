@@ -23,7 +23,7 @@
     </button>
 </div>
 
-<div class="matrix-panel absolute p-8 w-auto transition-all duration-500 flex flex-col gap-8 z-50" :class="open ? 'right-0 bottom-0 translate-y-0' : 'right-[5%] bottom-0 translate-y-64'" x-transition x-transition.duration.500ms x-data="{ open: false }">
+<div class="matrix-panel absolute p-8 w-auto transition-all duration-500 flex flex-col gap-8 z-50" :class="open ? 'right-0 bottom-0 translate-y-0' : 'right-[0%] bottom-0 translate-y-64'" x-transition x-transition.duration.500ms x-data="{ open: false }">
     <h1 class="matrix-title text-2xl">Processus d'innocentement</h1>
     {% if agents|length > 0 %}
         <form action="{{ path('app_eliminate_agent') }}" method="post" 
