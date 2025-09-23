@@ -14,7 +14,6 @@ Alpine.start();
 const innocents = (typeof window !== 'undefined' && Array.isArray(window.APP?.innocents))
     ? window.APP.innocents
     : [];
-console.log(window.APP.innocents)
 // Maintenant on peut l'utiliser partout
 if (innocents.length > 1) {
     const agent = innocents[1];
