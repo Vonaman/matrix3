@@ -8,7 +8,13 @@
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
 
+
         {% block javascripts %}
+            <script>
+                window.APP = {
+                    innocents: {{ innocents|json_encode|raw }}
+                }
+            </script>
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>

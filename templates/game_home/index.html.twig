@@ -1,6 +1,15 @@
 {% extends 'base.html.twig' %}
 
+{% block javascript %}
+    <script>
+        window.APP = window.APP || {};
+        window.APP.agents = {{ agents|json_encode|raw }};
+        window.APP.innocents = {{ innocents|json_encode|raw }};
+    </script>
+{% endblock %}
+
 {% block title %}Bonne enquête !{% endblock %}
+
 
 {% block body %}
 
@@ -26,7 +35,7 @@
                                 <div class="">
                                     {% for k in 1..2 %}
                                         {% if k == 1 %} 
-                                            <div class="L'agent_1 a pris un pillule">
+                                            <div class="{{ innocents[0].name }} a pris la pillule">
                                                 Bleu
                                             </div>
                                         {% else %}

@@ -1,3 +1,5 @@
+
+
 function graceForm(agents) {
     return {
         openGrace: false,
