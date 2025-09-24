@@ -20,24 +20,20 @@ final class GameHomeController extends AbstractController
 
         $endTime = $session->get('endtime');
 
-        // Toujours régénérer les agents si absents
         if (!$session->has('agents')) {
             $session->set('agents', $this->randomAgent());
         }
 
         $agents = $session->get('agents');
 
-        // Toujours recalcule les innocents à partir des agents en session
         $innocents = array_values(array_filter($agents, fn($a) => !$a['parasite']));
 
         if (!$session->has('innocents')) {
-            shuffle($innocents); // mélange une seule fois
+            shuffle($innocents);
             $session->set('innocents', $innocents);
         }
 
-        $innocents = $session->get('innocents'); // cohérence garantie
-
-        // dd($agents, $innocents);
+        $innocents = $session->get('innocents');
 
         $hash = $this->getSecretHash();
 

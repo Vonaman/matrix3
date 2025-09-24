@@ -17,7 +17,7 @@ final class SecretController extends AbstractController
         $entered = (string) $request->request->get('code', '');
 
         $secret = '230699';
-        $secret2 = '372438';
+        $secret2 = '372434';
         $secretHash = hash('sha256', $secret);
         $secretHash2 = hash('sha256', $secret2);
 

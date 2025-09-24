@@ -1,11 +1,11 @@
 document.addEventListener("alpine:init", () => {
     Alpine.data("timerComponent", (endTimeFromServer) => ({
-        endTime: endTimeFromServer, // fourni par Symfony
+        endTime: endTimeFromServer,
         timeLeft: "--:--",
         interval: null,
 
         start() {
-            if (!this.endTime) return; // évite de lancer si pas initialisé
+            if (!this.endTime) return;
 
             this.update();
             this.interval = setInterval(() => this.update(), 1000);
