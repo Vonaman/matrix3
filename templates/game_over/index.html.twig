@@ -22,4 +22,12 @@
     </div>
 {% endif %}
 
+{% block javascripts %}
+<script>
+    setTimeout(() => {
+        window.location.href = "{{ path('app_home') }}";
+    }, 60000);
+</script>
+{% endblock %}
+
 {% endblock %}

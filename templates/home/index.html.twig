@@ -40,6 +40,30 @@
     </form>
 </div>
 
+<div class="matrix-panel absolute p-8 w-auto transition-all duration-500 flex flex-col gap-8 z-50"
+    :class="open ? 'left-0 bottom-0 translate-y-0' : 'left-[0%] bottom-0 translate-y-48'"
+    x-transition x-transition.duration.500ms
+    x-data="{ open: false }">
+
+    <h1 class="matrix-title text-2xl">Vos code d'accès</h1>
+    <div class="text-container">
+        <p class="mail">
+            admin_I4@matrix.org
+        </p>
+        <p class="password">
+            4r@gtb7@ph$DFbB9
+        </p>
+    </div>
+
+    <!-- Nouveau bouton toggle Matrix -->
+    <button class="matrix-toggle absolute" @click="open = !open"
+            :class="open ? 'open' : ''">
+        <svg xmlns="http://www.w3.org/2000/svg" class="matrix-icon"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M7 20.6621C4.01099 18.933 2 15.7013 2 11.9999C2 6.47703 6.47715 1.99988 12 1.99988C17.5228 1.99988 22 6.47703 22 11.9999C22 15.7013 19.989 18.933 17 20.6621M16 11.9999L12 7.99995M12 7.99995L8 11.9999M12 7.99995V21.9999" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+</div>
 
 </div>
 

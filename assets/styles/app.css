@@ -636,3 +636,16 @@ body.gameover-body {
         opacity: 0;
     }
 }
+
+.matrix-panel .text-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+}
+
+.matrix-panel p{
+    color: #20E820;
+    font-family: "Courier New", monospace;
+    padding: 0.25rem 0.5rem;
+}
